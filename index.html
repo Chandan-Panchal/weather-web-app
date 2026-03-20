@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App | Real-time Weather Updates</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-default">
+    <div class="wrapper">
+        <header>
+            <h1 class="app-title">Weather App</h1>
+        </header>
+
+        <main class="container">
+            <div class="search-box">
+                <input type="text" id="cityInput" placeholder="Enter city name..." autocomplete="off">
+                <button id="searchBtn">
+                    <i data-lucide="search"></i>
+                </button>
+            </div>
+
+            <div id="weatherDisplay" class="weather-card hidden">
+                <div class="card-header">
+                    <div class="location">
+                        <h2 id="cityName">City Name</h2>
+                        <p id="dateTime">Friday, 20 March 2026</p>
+                    </div>
+                    <div class="unit-toggle">
+                        <span class="unit-label">°C</span>
+                        <label class="switch">
+                            <input type="checkbox" id="unitToggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="unit-label">°F</span>
+                    </div>
+                </div>
+
+                <div class="current-weather">
+                    <div class="weather-icon-container">
+                        <img id="weatherIcon" src="" alt="Weather Icon" class="main-icon">
+                    </div>
+                    <div class="temp-container">
+                        <span id="temperature" class="temp">25</span>
+                        <span class="degree">°</span>
+                        <span id="unitText" class="unit">C</span>
+                    </div>
+                    <p id="description" class="condition">Clouds</p>
+                    <p class="feels-like">Feels like: <span id="feelsLike">27</span>°<span id="feelsLikeUnit">C</span></p>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <i data-lucide="droplet" class="detail-icon"></i>
+                        <div class="detail-info">
+                            <span id="humidity">65%</span>
+                            <small>Humidity</small>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i data-lucide="wind" class="detail-icon"></i>
+                        <div class="detail-info">
+                            <span id="windSpeed">12 km/h</span>
+                            <small>Wind Speed</small>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i data-lucide="gauge" class="detail-icon"></i>
+                        <div class="detail-info">
+                            <span id="pressure">1013 hPa</span>
+                            <small>Pressure</small>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i data-lucide="eye" class="detail-icon"></i>
+                        <div class="detail-info">
+                            <span id="visibility">10 km</span>
+                            <small>Visibility</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading" class="loading-spinner hidden">
+                <div class="spinner"></div>
+                <p>Fetching weather data...</p>
+            </div>
+
+            <div id="error" class="error-message hidden">
+                <i data-lucide="alert-circle"></i>
+                <p id="errorText">City not found. Please try again.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
